@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edd0af2d2a408e4f99d6a997e6275d6, type: 3}
+  m_Name: Track_0
+  m_EditorClassIdentifier: 
+  trackName: 240
+  trackDesc: 241
+  trackIcon: {fileID: 21300000, guid: 2c2ae0f6582f03b488b5313d2c86cb69, type: 3}
+  index: 0
+  preFab: {fileID: 9028050375222252442, guid: 4075526b9aa0cde41862e21f286657ab, type: 3}
+  mode: 0
+  trackSceneName: 00_Galaxy_Race_00

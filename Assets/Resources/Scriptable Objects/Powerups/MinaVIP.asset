@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc307dfa0c4c8b4494311f4acc15b12, type: 3}
+  m_Name: MinaVIP
+  m_EditorClassIdentifier: 
+  itemName: MinaGold
+  itemIcon: {fileID: 21300000, guid: 5d0a1d469b6b86842a9da982ab05a5ea, type: 3}
+  backIconStore: {fileID: 21300000, guid: 245e9285503325f46935729d10528d1a, type: 3}
+  prefab: {fileID: 301973606341619962, guid: b8c938f15dd85864985b26e0603c7ca3, type: 3}
+  _class: 70

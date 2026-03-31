@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc307dfa0c4c8b4494311f4acc15b12, type: 3}
+  m_Name: MuroEspinas
+  m_EditorClassIdentifier: 
+  itemName: MuroEspinas
+  itemIcon: {fileID: 21300000, guid: 5f9f320814ff4cb4a8ea331c4e691047, type: 3}
+  backIconStore: {fileID: 21300000, guid: bbbbc5792f095cc4db79f7e58556c0e4, type: 3}
+  prefab: {fileID: 9148911750144597795, guid: 5a285e49950869d43973d1256e600362, type: 3}
+  _class: 63

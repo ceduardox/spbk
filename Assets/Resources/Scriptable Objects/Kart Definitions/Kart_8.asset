@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82c10e0c9eea446ac2043a95b1071a, type: 3}
+  m_Name: Kart_8
+  m_EditorClassIdentifier: 
+  id: 1400
+  nameKart: DinoKart
+  prefab: {fileID: 7047301579202192535, guid: 8ff2b35df5b07164ab6e3da9a3d35ec9, type: 3}
+  iconLobby: {fileID: 21300000, guid: 8537a0ac9ea94284686007ac1c014751, type: 3}
+  itemIcon: {fileID: 21300000, guid: 8537a0ac9ea94284686007ac1c014751, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: 8537a0ac9ea94284686007ac1c014751, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: 8537a0ac9ea94284686007ac1c014751, type: 3}
+  speedStat: 1
+  accelStat: 1
+  turnStat: 1
+  startConfig:
+  - {fileID: 8355021582412373953, guid: 4a07b31d2365dc54284f738ba504709f, type: 3}
+  - {fileID: 2767749435379138104, guid: d3989c29f4529bf4fbab7c050bdcb5bc, type: 3}
+  - {fileID: 201883593947157271, guid: 0ad1fba3e9eba57428b02fd928f99510, type: 3}
+  - {fileID: 479387229729400999, guid: 696e858c4637b6a4a9b621b7ea499058, type: 3}
+  - {fileID: 6216266886255937489, guid: 51730f45e1d6e8f419b16b32e7856574, type: 3}
+  - {fileID: 2172618674475141821, guid: 505207d3551a74d48a9f5f637382698f, type: 3}
+  - {fileID: 711166885029573647, guid: 9234affea37526c44894283b54e3bc6e, type: 3}
+  - {fileID: 6089252766135298651, guid: 358cd875e1fd3d249b4e52fff38105ba, type: 3}
+  - {fileID: 1478450576675895828, guid: 7555c1c8eef357c4a8601bcde627a397, type: 3}
+  - {fileID: 9067765449525330060, guid: 3747df24280409e4196c54efb8c3514c, type: 3}
+  - {fileID: 1031423027458786793, guid: 0ae925828a077a846a84b9e8bcc9888a, type: 3}
+  - {fileID: 6983637061874643191, guid: 12e5e3c24779fdd43a7cecb4a3f31cd0, type: 3}

@@ -1,0 +1,79 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# IDE / local tooling
+.vs/
+.vscode/
+.plastic/
+
+# Generated project files
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Local backups / temp notes
+codex_backups/
+*.bak
+*.bak_*
+*.meta.bak_*
+ROLLBACK_FIXES_*.md.bak_*
+ROLLBACK_UI_FIXES_*.md.bak_*
+fbg.log
+*.tmp
+
+# Secrets / local signing
+*.keystore
+*.jks
+
+# Heavy content not needed for code rollback repo
+Assets/Art/
+Assets/Tony/
+Assets/PolygonSciFiWorlds/
+Assets/Firebase/
+Assets/Sprites/
+Assets/terrenos/
+Assets/Resources/Prefabs/Drivers/
+Assets/Resources/Prefabs/KartPrefabs/
+Assets/NAVES/
+NAVES/
+SERVER/
+neraverse_BackUpThisFolder_ButDontShipItWithYourGame/
+
+# Keep key Unity project structure
+!Assets/
+!Assets/**/*.meta
+!Assets/Scripts/
+!Assets/Scripts/**
+!Assets/Track/
+!Assets/Track/**
+!Assets/Prefabs/
+!Assets/Prefabs/**
+!Assets/Resources/
+!Assets/Resources/**/*.meta
+!Assets/Resources/Scriptable Objects/
+!Assets/Resources/Scriptable Objects/**
+!Assets/Resources/Prefabs/
+!Assets/Resources/Prefabs/**/*.meta
+!Assets/Resources/Prefabs/Powerups/
+!Assets/Resources/Prefabs/Powerups/**
+!Packages/
+!Packages/**
+!ProjectSettings/
+!ProjectSettings/**

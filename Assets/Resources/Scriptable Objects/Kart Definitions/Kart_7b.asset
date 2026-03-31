@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82c10e0c9eea446ac2043a95b1071a, type: 3}
+  m_Name: Kart_7b
+  m_EditorClassIdentifier: 
+  id: 1300
+  nameKart: RhynoKart
+  prefab: {fileID: 7047301579202192535, guid: 96c5f5884b01e3a4f84b632617e90d50, type: 3}
+  iconLobby: {fileID: 21300000, guid: 58b4f3cf736098b4db5be9619228dcd3, type: 3}
+  itemIcon: {fileID: 21300000, guid: 58b4f3cf736098b4db5be9619228dcd3, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: 58b4f3cf736098b4db5be9619228dcd3, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: 58b4f3cf736098b4db5be9619228dcd3, type: 3}
+  speedStat: 1
+  accelStat: 1
+  turnStat: 1
+  startConfig:
+  - {fileID: 4673989169725875981, guid: 13eb0a825355c1e459873aba321af535, type: 3}
+  - {fileID: 4466162079814354061, guid: ffcc9761b1ac4374ea41536cf8b40fde, type: 3}
+  - {fileID: 3297796896100921820, guid: 514a7594514ec9640bd59a7620624933, type: 3}
+  - {fileID: 148750647311670644, guid: 501bc11bcf90246499fda6a1f7aeba90, type: 3}
+  - {fileID: 5023012009319287036, guid: fbe1ca2295054ca488bd66bd0530a7cc, type: 3}
+  - {fileID: 3888698207870768455, guid: cc0ba5de56fa475478aee7b2f5d86655, type: 3}
+  - {fileID: 4547495166346343461, guid: 9bb8913bff3e357498a3325895148039, type: 3}
+  - {fileID: 6618790153378258482, guid: 2dd22613567481e4ba3fc4f65bbbcb7f, type: 3}
+  - {fileID: 2479030184592706014, guid: 530d4142d4cff564e9b513b2f8201f27, type: 3}
+  - {fileID: 392194845442182446, guid: 171c74c188b890f43b094d48be14a805, type: 3}
+  - {fileID: 3019069474872063183, guid: ec77dc55180af8146ae2263b59dd9fb6, type: 3}
+  - {fileID: 6983637061874643191, guid: 12e5e3c24779fdd43a7cecb4a3f31cd0, type: 3}

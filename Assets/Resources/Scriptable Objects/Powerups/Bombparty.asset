@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc307dfa0c4c8b4494311f4acc15b12, type: 3}
+  m_Name: Bombparty
+  m_EditorClassIdentifier: 
+  itemName: Bombparty
+  itemIcon: {fileID: 21300000, guid: ac2e205b7ccc4b74da7118ecc432543e, type: 3}
+  backIconStore: {fileID: 21300000, guid: bbbbc5792f095cc4db79f7e58556c0e4, type: 3}
+  prefab: {fileID: 3511766906660528322, guid: f5f2683476941554bae7b1595643fc94, type: 3}
+  _class: 88

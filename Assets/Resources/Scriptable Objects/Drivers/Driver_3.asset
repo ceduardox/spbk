@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a764ad85254ad40499a0ab7deacdabd5, type: 3}
+  m_Name: Driver_3
+  m_EditorClassIdentifier: 
+  id: 400
+  nameDriver: Athenea
+  iconLobby: {fileID: 21300000, guid: 646f581cc06aa22449e3d88c208f2d8d, type: 3}
+  itemIcon: {fileID: 21300000, guid: 646f581cc06aa22449e3d88c208f2d8d, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: 4ba2f928f7f707444af24a5a082ae4bf, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: 4ba2f928f7f707444af24a5a082ae4bf, type: 3}
+  backgroundImg: {fileID: 21300000, guid: 1b1e7297e2898014482f2062296a8d45, type: 3}
+  characterLogo: {fileID: 21300000, guid: 9b4b84affc18d814598c6e1102f02bf0, type: 3}
+  prefab: {fileID: 2420068642427466181, guid: 884684e2784803040bcc64a37fc75459, type: 3}
+  startConfig: []

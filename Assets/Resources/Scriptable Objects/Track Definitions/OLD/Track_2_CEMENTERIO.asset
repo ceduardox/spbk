@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edd0af2d2a408e4f99d6a997e6275d6, type: 3}
+  m_Name: Track_2_CEMENTERIO
+  m_EditorClassIdentifier: 
+  trackName: 177
+  trackDesc: 178
+  trackIcon: {fileID: 21300000, guid: 14a4ca32725a767449862aa1442eb285, type: 3}
+  index: 60
+  preFab: {fileID: 9154656872818194873, guid: 60d0ae83342df5148a8da1d2567ffa52, type: 3}
+  mode: 0

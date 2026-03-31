@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edd0af2d2a408e4f99d6a997e6275d6, type: 3}
+  m_Name: Track_B5
+  m_EditorClassIdentifier: 
+  trackName: 250
+  trackDesc: 251
+  trackIcon: {fileID: 21300000, guid: 6a3edf2fbf73bcc46afb62cd67e84fd1, type: 3}
+  index: 50
+  preFab: {fileID: 7155989983670756055, guid: 4bfb13bea6195274caceb21a69806f9e, type: 3}
+  mode: 1
+  trackSceneName: Dungeon_Deathmatch_01

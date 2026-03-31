@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82c10e0c9eea446ac2043a95b1071a, type: 3}
+  m_Name: Kart_21
+  m_EditorClassIdentifier: 
+  id: 3100
+  nameKart: FormulaE_v2
+  prefab: {fileID: 8402335449114013959, guid: bb691cab9569cda489ab5d54b0ba21fe, type: 3}
+  iconLobby: {fileID: 21300000, guid: 171cb7b6c15aa0e43b01b85d2fa967fb, type: 3}
+  itemIcon: {fileID: 21300000, guid: 9fb919fb7c169384e8d3087e2cd2be55, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: 5d54f0d969f74244f90cc0a3e3576229, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: 5f536529d63789548aadbb7f5b15137e, type: 3}
+  speedStat: 1
+  accelStat: 1
+  turnStat: 1
+  startConfig:
+  - {fileID: 6983637061874643191, guid: 12e5e3c24779fdd43a7cecb4a3f31cd0, type: 3}
+  - {fileID: 2671781055571359820, guid: 64886504cbb632e408d15f951215410d, type: 3}
+  - {fileID: 3328124141924375654, guid: abd6df48527a6ff41b12f3346e842503, type: 3}
+  - {fileID: 1214685711473190094, guid: f08a5fd865938c94f8c1cd10dfa7c96d, type: 3}
+  - {fileID: 7390630238215110565, guid: 7021df9dc18d89a47b52a47a9838c204, type: 3}
+  - {fileID: 4578243429857646600, guid: 0e4d2e158f8666f439662abe3bbc4ed2, type: 3}
+  - {fileID: 1359881903809222953, guid: 06220cc9d2779094d8f6354977a70900, type: 3}
+  - {fileID: 3324365592753345672, guid: 32bbb754ef07cfb4e92855a714518c98, type: 3}
+  - {fileID: 3204251688189288333, guid: 712d89b201d259344ae5f53bf817025e, type: 3}
+  - {fileID: 8026658886979492333, guid: 216d16b7a20dfb4498fff7f42eb3f690, type: 3}
+  - {fileID: 4370326230231677859, guid: 5b0d233a1133b6645b642ceb7925aba6, type: 3}
+  - {fileID: 1423781436449791204, guid: 68601b09219828049824dfc419fe680b, type: 3}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a764ad85254ad40499a0ab7deacdabd5, type: 3}
+  m_Name: Driver_6B
+  m_EditorClassIdentifier: 
+  id: 700
+  nameDriver: karla
+  iconLobby: {fileID: 21300000, guid: 6df2417259e229742a60c5669013cbfc, type: 3}
+  itemIcon: {fileID: 21300000, guid: 6df2417259e229742a60c5669013cbfc, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: 6df2417259e229742a60c5669013cbfc, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: 6df2417259e229742a60c5669013cbfc, type: 3}
+  backgroundImg: {fileID: 21300000, guid: 5d6ce09a5e6536645bff9af5bd12193b, type: 3}
+  characterLogo: {fileID: 21300000, guid: a683caa6c616b3440982d240fc3d7f2e, type: 3}
+  prefab: {fileID: 4000643319438838697, guid: 87770bbe10a98f84b8e1ed3da1886ec9, type: 3}
+  startConfig: []

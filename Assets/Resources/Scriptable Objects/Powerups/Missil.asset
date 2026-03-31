@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc307dfa0c4c8b4494311f4acc15b12, type: 3}
+  m_Name: Missil
+  m_EditorClassIdentifier: 
+  itemName: Missil
+  itemIcon: {fileID: 21300000, guid: b9625026dff05084ab805482392b61b1, type: 3}
+  backIconStore: {fileID: 21300000, guid: 922fe2bf6595ccd43b319edaa46f48b2, type: 3}
+  prefab: {fileID: 7646117957999487954, guid: e443c129f4db16843b07b4083331c20d, type: 3}
+  _class: 41

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82c10e0c9eea446ac2043a95b1071a, type: 3}
+  m_Name: Kart_4
+  m_EditorClassIdentifier: 
+  id: 1800
+  nameKart: BuggieKart
+  prefab: {fileID: 3388300131663772780, guid: a262d63dee713174484402941c133e41, type: 3}
+  iconLobby: {fileID: 21300000, guid: d7e903973fd9e2740b7ca019246c936f, type: 3}
+  itemIcon: {fileID: 21300000, guid: d7e903973fd9e2740b7ca019246c936f, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: d7e903973fd9e2740b7ca019246c936f, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: d7e903973fd9e2740b7ca019246c936f, type: 3}
+  speedStat: 3
+  accelStat: 3
+  turnStat: 2
+  startConfig:
+  - {fileID: 6983637061874643191, guid: 12e5e3c24779fdd43a7cecb4a3f31cd0, type: 3}

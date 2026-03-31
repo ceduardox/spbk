@@ -1,0 +1,12 @@
+using UnityEngine;
+
+public class FinishLine : MonoBehaviour {
+    public bool debug;
+
+    private void OnTriggerStay(Collider other) {
+        if ( other.TryGetComponent(out KartLapController kart) ) {
+            //CLog.Log("- vuelta -");
+            kart.ProcessFinishLine(this);
+        }
+    }
+}

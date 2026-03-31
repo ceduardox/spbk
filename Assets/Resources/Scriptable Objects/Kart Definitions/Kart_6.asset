@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82c10e0c9eea446ac2043a95b1071a, type: 3}
+  m_Name: Kart_6
+  m_EditorClassIdentifier: 
+  id: 2400
+  nameKart: Solar
+  prefab: {fileID: 7047301579202192535, guid: 1e8f5f191ee0a90419b5063f97dbdaba, type: 3}
+  iconLobby: {fileID: 21300000, guid: 13d352cfd91ae1743be3b8aeb11e8e5f, type: 3}
+  itemIcon: {fileID: 21300000, guid: 13d352cfd91ae1743be3b8aeb11e8e5f, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: 13d352cfd91ae1743be3b8aeb11e8e5f, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: 13d352cfd91ae1743be3b8aeb11e8e5f, type: 3}
+  speedStat: 7
+  accelStat: 4
+  turnStat: 13
+  startConfig:
+  - {fileID: 6983637061874643191, guid: 12e5e3c24779fdd43a7cecb4a3f31cd0, type: 3}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc307dfa0c4c8b4494311f4acc15b12, type: 3}
+  m_Name: Smoke
+  m_EditorClassIdentifier: 
+  itemName: Smoke
+  itemIcon: {fileID: 21300000, guid: a856acee505c97a4d9c7fef1134cbc61, type: 3}
+  backIconStore: {fileID: 21300000, guid: edca34c465c953e4c81781e2f879f560, type: 3}
+  prefab: {fileID: 7843590293158352788, guid: 4928c01a7b2436b42a0916596e6c453e, type: 3}
+  _class: 59

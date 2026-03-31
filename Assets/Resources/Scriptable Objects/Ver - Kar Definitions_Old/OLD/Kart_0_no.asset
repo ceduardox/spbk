@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82c10e0c9eea446ac2043a95b1071a, type: 3}
+  m_Name: Kart_0_no
+  m_EditorClassIdentifier: 
+  id: 1000
+  nameKart: Tiburon
+  prefab: {fileID: 2592707394311987765, guid: 310edd7ee9c7be54cabf2652c39aa1a8, type: 3}
+  iconLobby: {fileID: 21300000, guid: e68d86103b674be49ab450b0506d70ca, type: 3}
+  itemIcon: {fileID: 21300000, guid: 3c3c6d693a2b2424e83c1e8739ca0618, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: 26467974154660c49956549cb74bc878, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: e812a45d3841ffb4c8d77a26f516a5dd, type: 3}
+  speedStat: 3
+  accelStat: 3
+  turnStat: 2
+  startConfig:
+  - {fileID: -7662361976272919943, guid: 4b0c4134af5f38a4b93aa40abe1812d0, type: 3}
+  - {fileID: 5160225754431397333, guid: 91647845da3987147ae1ae99b369f2c8, type: 3}
+  - {fileID: -669197228932557756, guid: 6f02f7e0ca5636b4baff75f2744d2d56, type: 3}
+  - {fileID: 7530840632085306981, guid: 4207cdbce0ce91a4aa939f0a0451dade, type: 3}
+  - {fileID: -4436013369372794654, guid: 4f4d21dbfa381004eb62741032090827, type: 3}
+  - {fileID: 5302962160363777345, guid: 6890426f863cd2843a538cb0a61c5913, type: 3}
+  - {fileID: -4342301503913002029, guid: 32a7c426b9d0f8f468f698e021a1162c, type: 3}
+  - {fileID: -5439638017441858284, guid: e192c54953c3a0c4dad1d9327f86dd0b, type: 3}
+  - {fileID: 5456832503342719000, guid: c70f40dda5ab76f47bc76ddb42eeba96, type: 3}
+  - {fileID: -7203535779169791634, guid: 57d607f2fc30d944fab1dd7d6cd6a04e, type: 3}
+  - {fileID: 2366571920191090079, guid: e563ac56431bc88499740f2bd02cf8d8, type: 3}
+  - {fileID: -5521953031934675137, guid: 5899a4f12529a544b87a12921f567ead, type: 3}
+  - {fileID: -6327022722548500671, guid: b5a00f2b8b6f0204ba549f70a59227c8, type: 3}
+  - {fileID: 6983637061874643191, guid: 12e5e3c24779fdd43a7cecb4a3f31cd0, type: 3}

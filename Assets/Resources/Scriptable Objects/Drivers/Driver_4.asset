@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a764ad85254ad40499a0ab7deacdabd5, type: 3}
+  m_Name: Driver_4
+  m_EditorClassIdentifier: 
+  id: 500
+  nameDriver: Vazt
+  iconLobby: {fileID: 21300000, guid: fca78a8524041f54791cbd8fbad7f701, type: 3}
+  itemIcon: {fileID: 21300000, guid: fca78a8524041f54791cbd8fbad7f701, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: fca78a8524041f54791cbd8fbad7f701, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: fca78a8524041f54791cbd8fbad7f701, type: 3}
+  backgroundImg: {fileID: 21300000, guid: 11cf18bd93afef54a89d5007aefc4485, type: 3}
+  characterLogo: {fileID: 21300000, guid: fa0a88eca51006d4587d8b873ea884a0, type: 3}
+  prefab: {fileID: 1891313233837432266, guid: 78e1c2790c33c054abcfbf5bbebcecf7, type: 3}
+  startConfig: []

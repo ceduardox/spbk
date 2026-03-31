@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82c10e0c9eea446ac2043a95b1071a, type: 3}
+  m_Name: Kart_8
+  m_EditorClassIdentifier: 
+  id: 1800
+  nameKart: BuggieKart
+  prefab: {fileID: 3388300131663772780, guid: a262d63dee713174484402941c133e41, type: 3}
+  iconLobby: {fileID: 21300000, guid: d7e903973fd9e2740b7ca019246c936f, type: 3}
+  itemIcon: {fileID: 21300000, guid: f7f8fd92710eec44bb39e6938b7bff43, type: 3}
+  itemIconOnClick: {fileID: 21300000, guid: 29373ba2877a6a44e93e6fe9d7e91ff5, type: 3}
+  itemIconSelected: {fileID: 21300000, guid: 41fcd15744908794eb7541aca76816ef, type: 3}
+  speedStat: 1
+  accelStat: 1
+  turnStat: 1
+  startConfig:
+  - {fileID: 8184561024071942192, guid: 5ec93bffae06b1c44a0de442b31876e1, type: 3}
+  - {fileID: 5615733697916678383, guid: fd8ce064fbc52884799269e229e584dc, type: 3}
+  - {fileID: 3073916908070055110, guid: de3992223ebc78146966b7081c44387f, type: 3}
+  - {fileID: 2522588296930277207, guid: 4161f44630ea2c44b8d3e0072eb37930, type: 3}
+  - {fileID: 6069712794706661504, guid: 17ca068a9bf07204eb13cccc45322e39, type: 3}
+  - {fileID: 719081981703864559, guid: 4becd4121fd81564a9a917b32f3197d9, type: 3}
+  - {fileID: 7954909283378513879, guid: fe39899b8d5ce424bbd4b70d13832e4e, type: 3}
+  - {fileID: 1160159177601674363, guid: 5fe721c0673b7644ebb6f6a64cdae10c, type: 3}
+  - {fileID: 4577748409776960883, guid: e7a1713c3f9051340a4cc693eeeb728f, type: 3}
+  - {fileID: 6202945632540960110, guid: 902f7c1827ca8c444b6ed1b97e52ed64, type: 3}
+  - {fileID: 1607157104799488690, guid: 92920ef6716a3bf4e94c98e9c73d770e, type: 3}
+  - {fileID: 1338751688950539624, guid: db6ed18855eafa14da4d4cda5eb59593, type: 3}
+  - {fileID: 6983637061874643191, guid: 12e5e3c24779fdd43a7cecb4a3f31cd0, type: 3}
+  - {fileID: 8136727291166961660, guid: 0fa117f3015159b4fa5b3bc2c1a97ca7, type: 3}
