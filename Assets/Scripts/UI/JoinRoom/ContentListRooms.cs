@@ -79,12 +79,12 @@ public class ContentListRooms : MonoBehaviour
                     }
 
                     itemTMP.sessionName.text = _listaTotal[i].sessionName;
-                    itemTMP.players.text = _listaTotal[i].players.ToString() + " / "+ _listaTotal[i].maxPlayers;
+                    itemTMP.players.text = _listaTotal[i].displayPlayers.ToString() + " / "+ _listaTotal[i].maxPlayers;
                     //itemTMP.maxPlayers.text = _listaTotal[i].maxPlayers.ToString();
                     itemTMP.status.text = _listaTotal[i].isOpen ? "En Lobby" : "En Carrera";
                     itemTMP.modeGame.text = ResourceManager.instance.gameTypes[_listaTotal[i].modeGame>0? _listaTotal[i].modeGame:0].name;
                     itemTMP.isOpen = _listaTotal[i].isOpen;
-                    itemTMP.PlayerBarFiller(_listaTotal[i].players);
+                    itemTMP.PlayerBarFiller(_listaTotal[i].displayPlayers);
                     itemTMP.session = _listaTotal[i].session;
                     CLog.Log("BET ES: " + _listaTotal[i].bet);
                     itemTMP.bet = int.Parse(_listaTotal[i].bet);
@@ -164,7 +164,7 @@ public class ContentListRooms : MonoBehaviour
                 if (listaSalas[i].sessionName == RoomSelectedObjet)
                 {
                     isRoom = true;
-                    object_panel.GetComponent<ObjectPanelRoom>().setDetails(listaSalas[i].trackid, listaSalas[i].laps, listaSalas[i].maxlaps, listaSalas[i].bet, ((listaSalas[i].players).ToString() + " / "+ listaSalas[i].maxPlayers), (listaSalas[i].isOpen ? "En Lobby" : "En Carrera"));
+                    object_panel.GetComponent<ObjectPanelRoom>().setDetails(listaSalas[i].trackid, listaSalas[i].laps, listaSalas[i].maxlaps, listaSalas[i].bet, ((listaSalas[i].displayPlayers).ToString() + " / "+ listaSalas[i].maxPlayers), (listaSalas[i].isOpen ? "En Lobby" : "En Carrera"));
                     break;
                 }
             }

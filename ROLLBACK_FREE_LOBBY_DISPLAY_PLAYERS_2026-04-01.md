@@ -1,23 +1,26 @@
-Checkpoint base antes del cambio:
-- `e0768a8` `Checkpoint before free lobby display players`
+Checkpoint base antes del ajuste UI-only:
+- `f2ab6dd` `Add free lobby display player count`
 
-Archivo modificado:
+Archivos modificados:
 - [`Assets/Scripts/Networking/GameLauncher.cs`](/g:/SUPERBLOK/PROSUPERBLOK4/PROSuperblock_The_Game_V3/Assets/Scripts/Networking/GameLauncher.cs)
+- [`Assets/Scripts/UI/JoinRoom/ContentListRooms.cs`](/g:/SUPERBLOK/PROSUPERBLOK4/PROSuperblock_The_Game_V3/Assets/Scripts/UI/JoinRoom/ContentListRooms.cs)
 
-Backup local:
-- [`codex_backups/2026-04-01_free_lobby_display_players/GameLauncher.cs.bak`](/g:/SUPERBLOK/PROSUPERBLOK4/PROSuperblock_The_Game_V3/codex_backups/2026-04-01_free_lobby_display_players/GameLauncher.cs.bak)
+Backups locales:
+- [`codex_backups/2026-04-01_ui_only_display_players/GameLauncher.cs.before_ui_only.bak`](/g:/SUPERBLOK/PROSUPERBLOK4/PROSuperblock_The_Game_V3/codex_backups/2026-04-01_ui_only_display_players/GameLauncher.cs.before_ui_only.bak)
+- [`codex_backups/2026-04-01_ui_only_display_players/ContentListRooms.cs.before_ui_only.bak`](/g:/SUPERBLOK/PROSUPERBLOK4/PROSuperblock_The_Game_V3/codex_backups/2026-04-01_ui_only_display_players/ContentListRooms.cs.before_ui_only.bak)
 
 Que hace este cambio:
-- publica `DisplayPlayers` solo en salas free
-- no toca `session.PlayerCount`
-- no toca apuestas
-- la lista usa `DisplayPlayers` solo si existe y solo si la sala esta abierta y `Bet <= 0`
+- deja el conteo real intacto en `itemList.players`
+- crea `itemList.displayPlayers` solo para mostrar en la UI
+- en salas free abiertas muestra `max(real, fake)`
+- en apuestas o salas cerradas muestra el real
+- no publica propiedades extra en Fusion
 
 Rollback rapido:
-1. Restaurar el archivo backup sobre `Assets/Scripts/Networking/GameLauncher.cs`
-2. O revertir el commit del cambio con git
+1. Restaurar ambos backups sobre sus archivos actuales
+2. O revertir el commit de este ajuste UI-only con git
 
 Prueba minima recomendada:
-1. Sala free recien creada: la lista debe mostrar un numero visual mayor que cero
-2. Sala free con bots entrando: la lista debe subir sin romper join
-3. Sala de apuesta: la lista debe seguir mostrando el conteo original
+1. Sala free nueva: la lista y el panel deben mostrar mas de 0
+2. Sala de apuesta: la lista y el panel deben seguir mostrando solo reales
+3. Sala free con el tiempo: el conteo visual debe subir sin afectar join o inicio
