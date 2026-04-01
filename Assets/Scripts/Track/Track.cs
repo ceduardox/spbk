@@ -387,25 +387,36 @@ public class Track : NetworkBehaviour, ICameraController
 
 	Transform checkPoint(int _nodo)
 	{
+		if (checkpoints == null || checkpoints.Length == 0)
+			return transform;
+
 		if (_nodo >= checkpoints.Length)
-			return checkpoints[0].transform;
+			return checkpoints[0] != null ? checkpoints[0].transform : transform;
 		else
-			return checkpoints[_nodo].transform;
+			return checkpoints[_nodo] != null ? checkpoints[_nodo].transform : transform;
 
 	}
 	private void InitCheckpoints()
 	{
 		if (checkpointsList != null && checkpointsList.childCount > 0)
 		{
-			checkpoints = new Checkpoint[checkpointsList.childCount];
+			var validCheckpoints = new List<Checkpoint>(checkpointsList.childCount);
 			for (int i = 0; i < checkpointsList.childCount; i++)
 			{
-				checkpoints[i] = checkpointsList.GetChild(i).GetComponent<Checkpoint>();
-				if (checkpoints[i] == null)
+				Transform child = checkpointsList.GetChild(i);
+				Checkpoint checkpoint = child.GetComponent<Checkpoint>();
+				if (checkpoint == null)
 				{
-					CLog.LogWarning("Checkpoint faltante en hijo " + i + " de checkpointsList en pista: " + name);
+					var finish = child.GetComponent<FinishLine>();
+					string reason = finish != null ? "FinishLine" : "sin componente Checkpoint";
+					CLog.LogWarning("Ignorando hijo " + i + " de checkpointsList en pista " + name + ": " + child.name + " (" + reason + ")");
+					continue;
 				}
+
+				validCheckpoints.Add(checkpoint);
 			}
+
+			checkpoints = validCheckpoints.ToArray();
 		}
 
 		if (checkpoints == null || checkpoints.Length == 0)
