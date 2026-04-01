@@ -41,6 +41,7 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
     public const float MAX_SPEED = 24;
     public const float MAX_ACC = .75f;
     public const float MAX_TURN = 7;
+    private const string DisplayPlayersPropertyKey = "DisplayPlayers";
 
 
 
@@ -84,9 +85,19 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
     [SerializeField] private bool enableSafeFreeLobbyBots = true;
     [SerializeField] private int maxSafeFreeLobbyBots = 5;
     [SerializeField] private string botPlayfabPrefix = "BOT_";
+    [Header("Free Lobby Display Players")]
+    [SerializeField] private bool enableFreeLobbyDisplayPlayers = true;
+    [SerializeField] private int freeLobbyDisplayMin = 1;
+    [SerializeField] private int freeLobbyDisplayMax = 3;
+    [SerializeField] private float freeLobbyDisplayStepSeconds = 10f;
+    [SerializeField] private int freeLobbyDisplaySoftCap = 4;
     private int _botSequence = 0;
     private string _lastSafeBotPresetKey = string.Empty;
     private int _botNameCursor = 0;
+    private Coroutine _freeLobbyDisplayPlayersRoutine;
+    private float _freeLobbyDisplayStartedAt = -1f;
+    private int _freeLobbyInitialDisplay = 0;
+    private int _lastPublishedDisplayPlayers = int.MinValue;
     private static readonly int[] BotNameRecycleStarts = { 0, 9, 19, 29, 39, 49, 59, 69, 79, 89, 99, 109, 119, 129, 139, 149 };
     private static readonly int[] BotNameRecycleSteps = { 3, 7, 11, 13, 17, 19, 21, 23, 27, 29, 31 };
     private static readonly string[] BotNamePool = BuildBotNamePool();
@@ -111,6 +122,140 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
     [SerializeField] private List<itemList> ListaSalas;
 
     Dictionary<string, SessionProperty> sessionProperties = new Dictionary<string, SessionProperty>();
+
+    private bool CanUseFreeLobbyDisplayPlayers()
+    {
+        return enableFreeLobbyDisplayPlayers &&
+               _runner != null &&
+               _runner.IsRunning &&
+               _runner.IsServer &&
+               !serverBet;
+    }
+
+    private int GetVisibleMaxPlayersForList()
+    {
+        int rawMaxPlayers = maxPlayers > 0 ? maxPlayers : ServerInfo.MaxUsers;
+        return Mathf.Max(0, rawMaxPlayers - 1);
+    }
+
+    private int GetCurrentLobbyVisiblePlayers()
+    {
+        return Mathf.Clamp(RoomPlayer.Players.Count, 0, GetVisibleMaxPlayersForList());
+    }
+
+    private void StartFreeLobbyDisplayPlayersRoutine()
+    {
+        StopFreeLobbyDisplayPlayersRoutine(true);
+
+        if (!CanUseFreeLobbyDisplayPlayers())
+            return;
+
+        int min = Mathf.Max(0, freeLobbyDisplayMin);
+        int max = Mathf.Max(min, freeLobbyDisplayMax);
+        _freeLobbyInitialDisplay = UnityEngine.Random.Range(min, max + 1);
+        _freeLobbyDisplayStartedAt = Time.realtimeSinceStartup;
+        _lastPublishedDisplayPlayers = int.MinValue;
+
+        PublishFreeLobbyDisplayPlayersNow();
+        _freeLobbyDisplayPlayersRoutine = StartCoroutine(FreeLobbyDisplayPlayersRoutine());
+    }
+
+    private void StopFreeLobbyDisplayPlayersRoutine(bool clearProperty)
+    {
+        if (_freeLobbyDisplayPlayersRoutine != null)
+        {
+            StopCoroutine(_freeLobbyDisplayPlayersRoutine);
+            _freeLobbyDisplayPlayersRoutine = null;
+        }
+
+        _freeLobbyDisplayStartedAt = -1f;
+        _freeLobbyInitialDisplay = 0;
+        _lastPublishedDisplayPlayers = int.MinValue;
+
+        if (clearProperty)
+            RemoveCustomSessionProperty(DisplayPlayersPropertyKey);
+    }
+
+    private System.Collections.IEnumerator FreeLobbyDisplayPlayersRoutine()
+    {
+        while (CanUseFreeLobbyDisplayPlayers())
+        {
+            PublishFreeLobbyDisplayPlayersNow();
+            yield return new WaitForSeconds(1f);
+        }
+
+        _freeLobbyDisplayPlayersRoutine = null;
+    }
+
+    private int ComputeFreeLobbyDisplayPlayers()
+    {
+        int visibleMax = GetVisibleMaxPlayersForList();
+        int actualVisible = GetCurrentLobbyVisiblePlayers();
+        int softCap = Mathf.Clamp(freeLobbyDisplaySoftCap, 0, visibleMax);
+
+        if (softCap <= 0)
+            return actualVisible;
+
+        int initial = Mathf.Clamp(_freeLobbyInitialDisplay, 0, softCap);
+        int steps = 0;
+        if (freeLobbyDisplayStepSeconds > 0f && _freeLobbyDisplayStartedAt >= 0f)
+        {
+            float elapsed = Mathf.Max(0f, Time.realtimeSinceStartup - _freeLobbyDisplayStartedAt);
+            steps = Mathf.FloorToInt(elapsed / freeLobbyDisplayStepSeconds);
+        }
+
+        int warmupVisible = Mathf.Clamp(initial + steps, 0, softCap);
+        return Mathf.Clamp(Mathf.Max(actualVisible, warmupVisible), 0, visibleMax);
+    }
+
+    private void PublishFreeLobbyDisplayPlayersNow()
+    {
+        if (!CanUseFreeLobbyDisplayPlayers())
+        {
+            RemoveCustomSessionProperty(DisplayPlayersPropertyKey);
+            return;
+        }
+
+        int displayPlayers = ComputeFreeLobbyDisplayPlayers();
+        if (_lastPublishedDisplayPlayers == displayPlayers)
+            return;
+
+        _lastPublishedDisplayPlayers = displayPlayers;
+        SetCustomSessionProperty(DisplayPlayersPropertyKey, displayPlayers);
+    }
+
+    private void SetCustomSessionProperty(string key, SessionProperty value)
+    {
+        if (string.IsNullOrEmpty(key))
+            return;
+
+        if (sessionProperties.ContainsKey(key))
+            sessionProperties[key] = value;
+        else
+            sessionProperties.Add(key, value);
+
+        if (_runner != null &&
+            _runner.SessionInfo.IsValid &&
+            _runner.SessionInfo.IsVisible)
+        {
+            _runner.SessionInfo.UpdateCustomProperties(sessionProperties);
+        }
+    }
+
+    private void RemoveCustomSessionProperty(string key)
+    {
+        if (string.IsNullOrEmpty(key) || !sessionProperties.ContainsKey(key))
+            return;
+
+        sessionProperties.Remove(key);
+
+        if (_runner != null &&
+            _runner.SessionInfo.IsValid &&
+            _runner.SessionInfo.IsVisible)
+        {
+            _runner.SessionInfo.UpdateCustomProperties(sessionProperties);
+        }
+    }
 
     private static string[] BuildBotNamePool()
     {
@@ -415,6 +560,7 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
         roomPlayer.CharId = selectedDriverId;
 
         CLog.Log("[BOT-SAFE] Spawn bot " + roomPlayer.Username);
+        PublishFreeLobbyDisplayPlayersNow();
         return true;
     }
 
@@ -791,6 +937,8 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
             if (rp.Object != null && rp.Object.IsValid)
                 _runner.Despawn(rp.Object);
         }
+
+        PublishFreeLobbyDisplayPlayersNow();
     }
     public void setOpenNet(bool _value)
     {
@@ -870,7 +1018,12 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
 
         if (serverBet)
         {
+            StopFreeLobbyDisplayPlayersRoutine(true);
             StartCoroutine(devolver(false));
+        }
+        else
+        {
+            StartFreeLobbyDisplayPlayersRoutine();
         }
         //_runner.SessionInfo.pr
         
@@ -1126,6 +1279,7 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
             RoomPlayer.Local.checkSession();
         }
 
+        PublishFreeLobbyDisplayPlayersNow();
 
 
         //runner.p
@@ -1152,6 +1306,7 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
             }
         }
 
+        PublishFreeLobbyDisplayPlayersNow();
 
         SetConnectionStatus(ConnectionStatus);
     }
@@ -1159,6 +1314,7 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
     {
         CLog.Log($"OnShutdown {shutdownReason}");
+        StopFreeLobbyDisplayPlayersRoutine(true);
         SetConnectionStatus(ConnectionStatus.Disconnected);
 
         (string status, string message) = ShutdownReasonToHuman(shutdownReason);
@@ -1352,6 +1508,7 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
 
             CLog.Log($"Listando: {session.Name} " + session.PlayerCount);
             string trackid = "----", laps = "----", maxlaps = "----", bet = "----", serverIP = "----", serverMode = "-1";
+            int displayPlayersOverride = -1;
             session.Properties.TryGetValue(SessionPropertyKey.TrackId.ToString(), out sp);
             if (sp != null)
             {
@@ -1390,17 +1547,27 @@ public class GameLauncher : MasterScreen, INetworkRunnerCallbacks
                 CLog.Log("Prop: " + SessionPropertyKey.ServerIP + ": " + sp.PropertyValue.ToString());
                 serverIP = sp.PropertyValue.ToString();
             }
+            session.Properties.TryGetValue(DisplayPlayersPropertyKey, out sp);
+            if (sp != null)
+            {
+                int.TryParse(sp.PropertyValue.ToString(), out displayPlayersOverride);
+            }
             if (serverMode != null)
             {
                 if ((int)gameFilter == int.Parse(serverMode))
                 {
+                    int betValue = 0;
+                    bool isFreeSession = int.TryParse(bet, out betValue) && betValue <= 0;
+                    if (!session.IsOpen || !isFreeSession)
+                        displayPlayersOverride = -1;
+
                     if (ListaSalas.Find((x) => x.sessionName == session.Name) == null)
                     {
-                        ListaSalas.Add(new itemList(session, session.Name, serverMode, session.PlayerCount, session.MaxPlayers, session.IsOpen, trackid, laps, maxlaps, bet, serverIP));
+                        ListaSalas.Add(new itemList(session, session.Name, serverMode, session.PlayerCount, session.MaxPlayers, session.IsOpen, trackid, laps, maxlaps, bet, serverIP, displayPlayersOverride));
                     }
                     else
                     {
-                        ListaSalas.Find((x) => x.sessionName == session.Name).Refresh(session, session.Name, serverMode, session.PlayerCount, session.MaxPlayers, session.IsOpen, trackid, laps, maxlaps, bet);
+                        ListaSalas.Find((x) => x.sessionName == session.Name).Refresh(session, session.Name, serverMode, session.PlayerCount, session.MaxPlayers, session.IsOpen, trackid, laps, maxlaps, bet, displayPlayersOverride);
 
                     }
 
@@ -1701,14 +1868,14 @@ public class itemList
     public bool borrar;
     public bool isAdd;
     public int modeGame;
-    public itemList(SessionInfo _session, string _nameRoom, string _gameMode, int _players, int _maxPlayers, bool _status, string _trackid, string _laps, string _maxlaps, string _bet, string _serverIP)
+    public itemList(SessionInfo _session, string _nameRoom, string _gameMode, int _players, int _maxPlayers, bool _status, string _trackid, string _laps, string _maxlaps, string _bet, string _serverIP, int _displayPlayers = -1)
     {
         CLog.Log("guarde: " + _nameRoom + " - " + _players + " - " + _status);
         session = _session;
         GameLauncher.instance.IP_server = serverIP = _serverIP;
         sessionName = _nameRoom;
-        players = _players - 1;
-        maxPlayers = _maxPlayers - 1;
+        maxPlayers = Mathf.Max(0, _maxPlayers - 1);
+        players = ResolveVisiblePlayers(_players, maxPlayers, _displayPlayers);
         isOpen = _status;
         trackid = _trackid;
         laps = _laps;
@@ -1720,13 +1887,13 @@ public class itemList
 
         //return this;
     }
-    public void Refresh(SessionInfo _session, string _nameRoom, string _gameMode, int _players, int _maxPlayers, bool _status, string _trackid, string _laps, string _maxlaps, string _bet)
+    public void Refresh(SessionInfo _session, string _nameRoom, string _gameMode, int _players, int _maxPlayers, bool _status, string _trackid, string _laps, string _maxlaps, string _bet, int _displayPlayers = -1)
     {
         CLog.Log("Refresh: " + _nameRoom + " - " + _players + " - " + _status);
         //session = _session;
         sessionName = _nameRoom;
-        players = _players - 1;
-        maxPlayers = _maxPlayers - 1;
+        maxPlayers = Mathf.Max(0, _maxPlayers - 1);
+        players = ResolveVisiblePlayers(_players, maxPlayers, _displayPlayers);
         isOpen = _status;
         trackid = _trackid;
         laps = _laps;
@@ -1737,5 +1904,14 @@ public class itemList
         modeGame = int.Parse(_gameMode);
 
         //return this;
+    }
+
+    private static int ResolveVisiblePlayers(int sessionPlayers, int visibleMaxPlayers, int displayPlayersOverride)
+    {
+        int realVisiblePlayers = Mathf.Clamp(sessionPlayers - 1, 0, visibleMaxPlayers);
+        if (displayPlayersOverride < 0)
+            return realVisiblePlayers;
+
+        return Mathf.Clamp(Mathf.Max(realVisiblePlayers, displayPlayersOverride), 0, visibleMaxPlayers);
     }
 }
